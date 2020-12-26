@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  vtys-app:
+    image: vtys-image-4
+    restart: always
+    ports:
+      - 8080:8080
