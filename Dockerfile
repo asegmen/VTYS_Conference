@@ -1,10 +1,14 @@
 FROM openjdk:15-jdk-alpine
 
+WORKDIR /app
 COPY . .
-RUN ./mvnw package -DskipTests
-RUN addgroup -S spring && adduser -S spring -G spring
 
+RUN ./mvnw package -DskipTests
+FROM openjdk:15-jdk-alpine
+
+WORKDIR /app
+RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+COPY --from=0 /app/target/vtys-demo-0.0.2-SNAPSHOT.jar .
+ENTRYPOINT ["java","-jar","./vtys-demo-0.0.2-SNAPSHOT.jar"]
