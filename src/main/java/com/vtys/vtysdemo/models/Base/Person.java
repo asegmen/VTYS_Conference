@@ -3,10 +3,9 @@ import javax.persistence.*;
 
 @MappedSuperclass
 public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private Long personID;
+
+    @Column(name = "id")
+    private Long id;
 
     @Column(name="first_name")
     private String fistName;
@@ -20,12 +19,12 @@ public class Person {
     public Person() {
     }
 
-    public Long getPersonID() {
-        return personID;
+    public Long getId() {
+        return id;
     }
 
-    public void setPersonID(Long personID) {
-        this.personID = personID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFistName() {

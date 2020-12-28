@@ -50,9 +50,4 @@ public class AttendeesController {
         BeanUtils.copyProperties(attendee, model, "id");
         return _attendeeRepository.saveAndFlush(attendee);
     }
-
-    @GetMapping("/getws")
-    public List<Attendee> findAttendeesWithByWorkShop(){
-        return _attendeeRepository.findAttendeesByWorkshop();
-    }
 }
