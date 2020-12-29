@@ -4,9 +4,9 @@ import javax.persistence.*;
 @MappedSuperclass
 public class Person {
 
-    @Column(name = "id")
+    /*@Column(name = "id")
     private Long id;
-
+*/
     @Column(name="first_name")
     private String fistName;
 
@@ -18,7 +18,7 @@ public class Person {
 
     public Person() {
     }
-
+/*
     public Long getId() {
         return id;
     }
@@ -26,7 +26,7 @@ public class Person {
     public void setId(Long id) {
         this.id = id;
     }
-
+*/
     public String getFistName() {
         return fistName;
     }
